@@ -1,0 +1,24 @@
+[project]
+name = "bondar"
+version = "0.1.0"
+description = ""
+authors = [{ name = "Alejandro", email = "ale.navarini99@gmail.com" }]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi[standard] (>=0.115.12,<0.116.0)",
+    "schedule (>=1.2.2,<2.0.0)",
+    "cachetools (>=5.5.2,<6.0.0)",
+    "google-auth (>=2.39.0,<3.0.0)",
+    "gspread (>=6.2.0,<7.0.0)",
+    "pandas (>=2.2.3,<3.0.0)",
+    "pydantic-settings (>=2.9.1,<3.0.0)",
+]
+
+[tool.poetry]
+packages = [{ include = "bondar", from = "src" }]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
