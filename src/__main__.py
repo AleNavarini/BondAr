@@ -1,5 +1,4 @@
 from contextlib import asynccontextmanager
-from re import S
 from fastapi import FastAPI
 from cachetools import TTLCache
 import schedule
@@ -11,10 +10,10 @@ import pandas as pd
 from src.settings.settings import Settings
 from src.google_client.google_client import GoogleClient
 
-# Initialize cache (5-minute TTL, maxsize=1 for single cached item)
-cache = TTLCache(maxsize=1, ttl=300)
-
 settings = Settings()
+
+# Initialize cache with TTL from settings
+cache = TTLCache(maxsize=1, ttl=settings.cache_update_interval)
 
 
 def fetch_data():
